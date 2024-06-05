@@ -14,7 +14,7 @@ export interface Book {
     contents: string;
     price: number;
     likes: number;
-    pubDate: string;
+    pub_date: string;
 }
 
 
