@@ -16,7 +16,7 @@ const setToken = (token: string) => {
 };
 
 export const removeToken = () => {
-    localStorage.removeItem("taken");
+    localStorage.removeItem("token");
 };
 
 export const useAuthStore = create<Storestate>((set) => ({

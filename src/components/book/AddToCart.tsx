@@ -74,8 +74,8 @@ const AppToCartStyle = styled.div<AddToCartStyleProps>`
         background: ${({theme}) => theme.color.background};
         border-radius: ${({theme}) => theme.borderRadius.default};
         padding: 8px 12px;
-        opacit: ${({$added}) => ($added ? "1": "0")};
-        teansition: all 0.5s ease;
+        opacity: ${({$added}) => ($added ? "1": "0")};
+        transition: all 0.5s ease;
 
         p{
             padding: 0 0 8px 0;

@@ -10,7 +10,7 @@ export const useBook = (bookId: string | undefined) => {
     const [book, setBook] = useState<BookDetail | null>(null);
     const [cartAdded, setCartAdded] = useState(false);
     const {isloggedIn} = useAuthStore();
-    const showAlert = useAlert();
+    const {showAlert} = useAlert();
 
     const likeToggle = () => {
         //권한 확인
@@ -53,8 +53,8 @@ export const useBook = (bookId: string | undefined) => {
             setTimeout(()=> {
                 setCartAdded(false);
             }, 3000);
-        })
-    }
+        });
+    };
 
     useEffect(()=> {
         if(!bookId) return;
