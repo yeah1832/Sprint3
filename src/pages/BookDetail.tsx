@@ -7,6 +7,8 @@ import { BookDetail as IBookDetail} from "../models/book.model";
 import { formatDate, formatNumber } from "../utils/format";
 import LikeButton from "../components/book/LikeButton";
 import AddToCart from "../components/book/AddToCart";
+import BookReview from "../components/book/BookReview";
+import { addReview } from "@/mock/review";
 
 const bookInfoList = [
     {
@@ -46,7 +48,7 @@ const bookInfoList = [
 function BookDetail(){
 
     const {bookId} =  useParams();
-    const {book, likeToggle} = useBook(bookId);
+    const {book, likeToggle, reviews, addReview} = useBook(bookId);
 
     if (!book) return null;
 
@@ -84,6 +86,9 @@ function BookDetail(){
 
                 <Title size="medium">목차</Title>
                 <p className="detail">{book.contents}</p>
+
+                <Title size="medium">리뷰</Title>
+                <BookReview reviews={reviews} onAdd={addReview}/>
             </div>
         </BookDetailStyle>
     )
@@ -118,7 +123,7 @@ const BookDetailStyle = styled.div`
                     color: ${({theme}) => theme.color.secondary};
                 }
                 a{
-                    color: ${({theme}) => theme.color.primary}
+                    color: ${({theme}) => theme.color.primary};
                 }
             }
         }
