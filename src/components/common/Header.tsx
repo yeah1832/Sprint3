@@ -2,13 +2,14 @@ import {styled} from "styled-components";
 import ThemeSwitcher from "../header/ThemeSwitcher";
 import logo from '../../assets/images/logo.jpg';
 import { nodeModuleNameResolver } from "typescript";
-import {FaSignInAlt, FaRegUser} from "react-icons/fa";
+import {FaSignInAlt, FaRegUser, FaUserCircle} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Category } from "../../models/category.model";
 import { useEffect, useState } from "react";
 import { fetchCategory } from "../../api/category.api";
 import { useCategory } from "../../hooks/useCategory";
 import { useAuthStore } from "../../store/authStore";
+import Dropdown from "./Dropdown";
 
 
 function Header(){
@@ -34,7 +35,9 @@ function Header(){
                 </ul>
             </nav>
             <nav className="auth">
-                {
+                <Dropdown toggleButton={<FaUserCircle />}>
+                    <>
+                    {
                     isloggedIn && (
                         <ul>
                             <li><Link to="/cart">장바구니</Link></li>
@@ -56,7 +59,12 @@ function Header(){
                                 </a>
                             </li>
                         </ul> 
-                )}   
+                    )}  
+                    <ThemeSwitcher />
+                    </>
+                </Dropdown>
+
+                
             </nav>
         </HeaderStyle>
     );
@@ -81,6 +89,7 @@ const HeaderStyle = styled.header`
    .category{
     ul{
         display: flex;
+        
         gap: 32px;
         li{
             a {
@@ -99,7 +108,9 @@ const HeaderStyle = styled.header`
    .auth {
     ul{
         display: flex;
+        flex-direction: column;
         gap: 16px;
+        width: 100px;
         li{
             a, button {
                 font-size: 1rem;
@@ -107,6 +118,8 @@ const HeaderStyle = styled.header`
                 text-decoration: none;
                 display: flex;
                 align-item: center;
+                justify-content: center;
+                width: 100%;
                 line-height: 1;
                 border: 0;
                 background: none;

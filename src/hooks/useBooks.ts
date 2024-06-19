@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Book } from "../models/book.model";
 import { Pagination } from "../models/pagination.model";
 import { fetchBooks } from "../api/books.api";
-import { QUERYSTRING } from "../constants/querystring";
-import { LIMIT } from "../constants/pagination";
+import { QUERYSTRING } from "../contents/querystring";
+import { LIMIT } from "../contents/pagination";
 import { useQuery } from "react-query";
 
 export const useBooks = () => {
