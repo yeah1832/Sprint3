@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useCategory } from "../../hooks/useCategory";
 import Button from "../common/Button";
 import { useSearchParams } from "react-router-dom";
-import { QUERYSTRING } from "../../contents/querystring";
+import { QUERYSTRING } from "../../constants/querystring";
 
 function BooksFilter(){
     const {category} = useCategory();

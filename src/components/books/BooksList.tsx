@@ -3,7 +3,7 @@ import BookItem from "./BookItem";
 import { Book } from "../../models/book.model";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { QUERYSTRING } from "../../contents/querystring";
+import { QUERYSTRING } from "../../constants/querystring";
 import { ViewMode } from "./BooksViewSwitcher";
 
 interface Props {
